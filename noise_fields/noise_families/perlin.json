@@ -1,0 +1,45 @@
+{
+  "id": "perlin",
+  "display_name": "Perlin Noise",
+  "mathematical_definition": "Gradient noise assigning pseudo-random gradient vectors to lattice points and interpolating their dot products with offset vectors via a smoothstep kernel.",
+  "dimension_support": [1, 2, 3, 4],
+  "value_range": "approx. [-1, 1] before remapping",
+  "visual_keywords": ["smooth", "organic", "cloudy", "rolling", "soft"],
+  "good_for": ["clouds", "fog", "soft terrain", "organic textures"],
+  "art_failure_modes": [
+    "Visible grid artifacts when frequency is too low or interpolation is not smooth enough.",
+    "Obvious repetition when tiling without a periodic variant.",
+    "Looks bland if used without layering multiple octaves (FBM)."
+  ],
+  "canonical_parameter_sets": [
+    {
+      "id": "perlin_soft_terrain",
+      "dimensions": 3,
+      "space": "world",
+      "base_frequency": 0.5,
+      "octaves": 4,
+      "lacunarity": 2.0,
+      "gain": 0.5,
+      "style_tags": ["rolling hills", "soft", "low jaggedness"]
+    },
+    {
+      "id": "perlin_fog",
+      "dimensions": 3,
+      "space": "world",
+      "base_frequency": 1.8,
+      "octaves": 5,
+      "lacunarity": 2.0,
+      "gain": 0.55,
+      "style_tags": ["fog", "smoke", "soft turbulence"]
+    }
+  ],
+  "shader_chunks": {
+    "glsl": "shaders/glsl/perlin.glsl",
+    "wgsl": "shaders/wgsl/perlin.wgsl"
+  },
+  "complexity_notes": {
+    "relative_cost": "medium",
+    "branching": "none",
+    "texture_lookups": 0
+  }
+}

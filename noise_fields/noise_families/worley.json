@@ -1,0 +1,38 @@
+{
+  "id": "worley",
+  "display_name": "Worley (Cellular) Noise",
+  "mathematical_definition": "Cellular noise derived from distances to Poisson-distributed feature points, often using F1 or F2-F1 metrics.",
+  "dimension_support": [2, 3],
+  "value_range": "[0, 1] after normalization of distance metric",
+  "visual_keywords": ["cellular", "stone", "cracked", "leather"],
+  "good_for": ["cells", "rocks", "veins", "stylized leather"],
+  "art_failure_modes": [
+    "Obvious grid repetition when the point pattern is not randomized enough.",
+    "Aliasing on sharp cell borders without anti-aliasing.",
+    "Can look synthetic if used at a single scale."
+  ],
+  "parameters": {
+    "metric": ["euclidean", "manhattan", "chebyshev"],
+    "channels": ["F1", "F2", "F2_minus_F1"]
+  },
+  "canonical_parameter_sets": [
+    {
+      "id": "worley_leather",
+      "dimensions": 2,
+      "space": "uv",
+      "base_frequency": 6.0,
+      "metric": "euclidean",
+      "channel": "F2_minus_F1",
+      "style_tags": ["cellular", "leather", "organic surface"]
+    }
+  ],
+  "shader_chunks": {
+    "glsl": "shaders/glsl/worley.glsl",
+    "wgsl": "shaders/wgsl/worley.wgsl"
+  },
+  "complexity_notes": {
+    "relative_cost": "high",
+    "branching": "minimal",
+    "texture_lookups": 0
+  }
+}

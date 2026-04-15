@@ -1,0 +1,27 @@
+{
+  "id": "smoky_volumetric_haze",
+  "description": "Soft, billowy volumetric haze using FBM of Perlin or Simplex with light domain warping.",
+  "noise_graph": {
+    "base": {
+      "family": "fbm",
+      "preset": "fbm_soft_clouds"
+    },
+    "modifiers": [
+      {
+        "type": "domain_warp",
+        "warp_noise": "simplex",
+        "warp_strength": 0.3,
+        "warp_frequency": 2.0
+      }
+    ]
+  },
+  "style_tags": ["smoky", "volumetric", "soft", "haze"],
+  "example_prompts": [
+    "use 3D FBM noise with low contrast and subtle domain warping for smoky volumetric haze",
+    "layer soft FBM Perlin clouds in world space for fog"
+  ],
+  "screenshot_metadata": {
+    "camera": { "type": "perspective", "notes": "Render a mid-density volume slice." },
+    "shading": "single-scattering approximation"
+  }
+}

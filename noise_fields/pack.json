@@ -1,0 +1,10 @@
+{
+  "id": "noise_fields",
+  "name": "Canonical Noise and Domain‑Warp Pack",
+  "version": "0.1.0",
+  "description": "Structured knowledge about common procedural noise families and combinators for generative shaders.",
+  "tags": ["noise", "shaders", "glsl", "wgsl", "procedural"],
+  "families_index": "noise_families/index.json",
+  "combinators_index": "combinators/index.json",
+  "recipes_index": "recipes/index.json"
+}

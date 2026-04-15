@@ -1,0 +1,37 @@
+{
+  "id": "ridged_multifractal",
+  "display_name": "Ridged Multifractal",
+  "base_noise_family": ["perlin", "simplex"],
+  "mathematical_definition": "Multifractal combination that uses absolute value and inversion of base noise to emphasize ridges before summing octaves.",
+  "dimension_support": [2, 3],
+  "value_range": "approx. [0, 1] after remapping",
+  "visual_keywords": ["jagged", "mountainous", "craggy", "hard"],
+  "good_for": ["mountain ranges", "rocky cliffs", "alien terrain"],
+  "art_failure_modes": [
+    "High gain and lacunarity produce visually noisy, harsh surfaces.",
+    "Overused as a single layer, everything looks like spikes."
+  ],
+  "canonical_parameter_sets": [
+    {
+      "id": "ridged_mountains_low_lacunarity",
+      "base_noise": "simplex",
+      "dimensions": 3,
+      "space": "world",
+      "octaves": 6,
+      "base_frequency": 1.5,
+      "lacunarity": 1.8,
+      "gain": 0.75,
+      "style_tags": ["mountains", "jagged", "large scale"],
+      "notes": ["Use with world-space coordinates for stable terrain."]
+    }
+  ],
+  "shader_chunks": {
+    "glsl": "shaders/glsl/ridged_multifractal.glsl",
+    "wgsl": "shaders/wgsl/ridged_multifractal.wgsl"
+  },
+  "complexity_notes": {
+    "relative_cost": "high",
+    "branching": "none",
+    "texture_lookups": 0
+  }
+}

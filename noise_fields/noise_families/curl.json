@@ -1,0 +1,32 @@
+{
+  "id": "curl",
+  "display_name": "Curl Noise",
+  "mathematical_definition": "A divergence-free vector field computed as the curl of an underlying scalar noise field, approximated via finite differences.",
+  "dimension_support": [2, 3],
+  "value_range": "vector field, magnitude depends on step size and frequency",
+  "visual_keywords": ["turbulent", "vortices", "flow", "swirling"],
+  "good_for": ["velocity fields", "smoke advection", "abstract flow patterns"],
+  "art_failure_modes": [
+    "Too large step size produces numerical artifacts and non-smooth flow.",
+    "Very high frequency causes jittery, noisy motion."
+  ],
+  "canonical_parameter_sets": [
+    {
+      "id": "curl_soft_vortices",
+      "dimensions": 3,
+      "base_noise": "simplex",
+      "step_size": 0.1,
+      "frequency": 1.5,
+      "style_tags": ["large vortices", "soft flow"]
+    }
+  ],
+  "shader_chunks": {
+    "glsl": "shaders/glsl/curl.glsl",
+    "wgsl": "shaders/wgsl/curl.wgsl"
+  },
+  "complexity_notes": {
+    "relative_cost": "high (requires finite differences of base noise)",
+    "branching": "none",
+    "texture_lookups": 0
+  }
+}

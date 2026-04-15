@@ -1,0 +1,16 @@
+{
+  "id": "domain_warp",
+  "display_name": "Domain Warp Combinator",
+  "description": "Warps the input coordinates of a base noise using one or more warp noise functions, creating swirled and turbulent patterns.",
+  "accepts_base_noise": ["perlin", "simplex", "fbm", "worley"],
+  "parameters": {
+    "warp_noise": { "type": "noise_ref", "options": ["simplex", "fbm", "perlin"] },
+    "warp_strength": { "type": "float", "min": 0.0, "max": 3.0, "typical": [0.25, 1.0] },
+    "warp_frequency": { "type": "float", "min": 0.1, "max": 10.0, "typical": [0.8, 2.0] }
+  },
+  "shader_chunks": {
+    "glsl": "shaders/glsl/domain_warp.glsl",
+    "wgsl": "shaders/wgsl/domain_warp.wgsl"
+  },
+  "notes": "Can be layered (warp of a warp) for increasingly complex distortion. Use with care as deep warping can create visual noise."
+}

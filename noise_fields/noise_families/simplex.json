@@ -1,0 +1,34 @@
+{
+  "id": "simplex",
+  "display_name": "Simplex Noise",
+  "mathematical_definition": "Gradient noise defined over simplices (triangles/tetrahedra) with fewer directional artifacts and better scalability than classic Perlin noise.",
+  "dimension_support": [2, 3, 4],
+  "value_range": "approx. [-1, 1]",
+  "visual_keywords": ["smooth", "organic", "isotropic", "fine detail"],
+  "good_for": ["high-frequency detail", "clouds", "volumetric effects"],
+  "art_failure_modes": [
+    "Can look too uniform when used alone at low octaves.",
+    "Aliasing if sampled at very high frequency without filtering."
+  ],
+  "canonical_parameter_sets": [
+    {
+      "id": "simplex_detail_layer",
+      "dimensions": 3,
+      "space": "world",
+      "base_frequency": 3.0,
+      "octaves": 3,
+      "lacunarity": 2.2,
+      "gain": 0.45,
+      "style_tags": ["fine detail", "micro variation"]
+    }
+  ],
+  "shader_chunks": {
+    "glsl": "shaders/glsl/simplex.glsl",
+    "wgsl": "shaders/wgsl/simplex.wgsl"
+  },
+  "complexity_notes": {
+    "relative_cost": "medium",
+    "branching": "none",
+    "texture_lookups": 0
+  }
+}
