@@ -6,12 +6,12 @@
 #define NOISE_FIELDS_SIMPLEX_GLSL
 
 // 2D Simplex noise
-float simplexNoise(vec2 p);
+float simplexNoise2D(vec2 p);
 
 // 3D Simplex noise
-float simplexNoise(vec3 p);
+float simplexNoise3D(vec3 p);
 
 // 4D Simplex noise
-float simplexNoise(vec4 p);
+float simplexNoise4D(vec4 p);
 
 #endif

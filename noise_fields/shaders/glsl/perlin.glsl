@@ -6,9 +6,9 @@
 #define NOISE_FIELDS_PERLIN_GLSL
 
 // 2D Perlin noise
-float perlinNoise(vec2 p);
+float perlinNoise2D(vec2 p);
 
 // 3D Perlin noise
-float perlinNoise(vec3 p);
+float perlinNoise3D(vec3 p);
 
 #endif

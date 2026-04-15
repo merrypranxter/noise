@@ -6,18 +6,18 @@
 #define NOISE_FIELDS_WORLEY_GLSL
 
 // 2D Worley noise returning F1 distance
-float worleyF1(vec2 p);
+float worleyF1_2D(vec2 p);
 
 // 2D Worley noise returning F2 distance
-float worleyF2(vec2 p);
+float worleyF2_2D(vec2 p);
 
 // 2D Worley noise returning F2 - F1 (cell edge detection)
-float worleyF2minusF1(vec2 p);
+float worleyF2minusF1_2D(vec2 p);
 
 // 3D Worley noise returning F1 distance
-float worleyF1(vec3 p);
+float worleyF1_3D(vec3 p);
 
 // 3D Worley noise returning F2 - F1
-float worleyF2minusF1(vec3 p);
+float worleyF2minusF1_3D(vec3 p);
 
 #endif

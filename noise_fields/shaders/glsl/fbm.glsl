@@ -9,7 +9,7 @@ float fbmPerlin(vec3 p, int octaves, float baseFreq, float lacunarity, float gai
     float freq = baseFreq;
     float sum = 0.0;
     for (int i = 0; i < octaves; ++i) {
-        sum += amp * perlinNoise(p * freq);
+        sum += amp * perlinNoise3D(p * freq);
         freq *= lacunarity;
         amp *= gain;
     }
@@ -21,7 +21,7 @@ float fbmSimplex(vec3 p, int octaves, float baseFreq, float lacunarity, float ga
     float freq = baseFreq;
     float sum = 0.0;
     for (int i = 0; i < octaves; ++i) {
-        sum += amp * simplexNoise(p * freq);
+        sum += amp * simplexNoise3D(p * freq);
         freq *= lacunarity;
         amp *= gain;
     }

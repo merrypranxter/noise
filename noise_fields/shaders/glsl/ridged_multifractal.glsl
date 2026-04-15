@@ -10,7 +10,7 @@ float ridgedMultifractal(vec3 p, int octaves, float baseFreq, float lacunarity, 
     float sum = 0.0;
     float prev = 1.0;
     for (int i = 0; i < octaves; ++i) {
-        float n = 1.0 - abs(perlinNoise(p * freq));
+        float n = 1.0 - abs(perlinNoise3D(p * freq));
         n = n * n;
         sum += n * amp * prev;
         prev = n;
