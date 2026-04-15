@@ -1,0 +1,45 @@
+{
+  "id": "crystal_lattice",
+  "description": "Geometric crystalline patterns using Worley Chebyshev metric with sharp thresholding for faceted surfaces.",
+  "noise_graph": {
+    "base": {
+      "family": "worley",
+      "preset": "worley_leather",
+      "override": {
+        "metric": "chebyshev",
+        "base_frequency": 4.0
+      }
+    },
+    "modifiers": [
+      {
+        "type": "domain_warp",
+        "warp_noise": "simplex",
+        "warp_strength": 0.15,
+        "warp_frequency": 3.0
+      }
+    ],
+    "post_process": {
+      "remap": "step(0.3, fract(value * 5.0))",
+      "notes": "Quantize to create sharp faceted edges"
+    }
+  },
+  "style_tags": [
+    "crystalline",
+    "geometric",
+    "faceted",
+    "mineral",
+    "sharp",
+    "grid",
+    "voronoi"
+  ],
+  "example_prompts": [
+    "use Worley Chebyshev noise with sharp thresholding for crystal facets",
+    "create geometric mineral surface with quantized cellular noise",
+    "generate crystalline lattice pattern using Chebyshev Voronoi with subtle warp"
+  ],
+  "screenshot_metadata": {
+    "camera": { "type": "ortho_uv" },
+    "shading": "metallic_faceted",
+    "notes": "Use cool blue-purple palette. Apply fresnel-like edge brightening."
+  }
+}

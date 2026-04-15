@@ -1,0 +1,43 @@
+{
+  "id": "alien_membrane",
+  "description": "Organic membrane texture combining Worley cells with curl noise displacement for biological alien surfaces.",
+  "noise_graph": {
+    "base": {
+      "family": "worley",
+      "preset": "worley_leather"
+    },
+    "modifiers": [
+      {
+        "type": "domain_warp",
+        "warp_noise": "curl",
+        "warp_strength": 0.3,
+        "warp_frequency": 2.0
+      },
+      {
+        "type": "blend",
+        "blend_noise": "fbm",
+        "blend_mode": "multiply",
+        "blend_preset": "fbm_soft_clouds"
+      }
+    ]
+  },
+  "style_tags": [
+    "alien",
+    "membrane",
+    "biological",
+    "organic",
+    "cellular",
+    "slimy",
+    "xenomorph"
+  ],
+  "example_prompts": [
+    "use Worley cells displaced by curl noise for alien membrane textures",
+    "create biological organic surface by multiplying cellular noise with FBM",
+    "generate slimy alien skin using curl-warped Worley and soft FBM overlay"
+  ],
+  "screenshot_metadata": {
+    "camera": { "type": "ortho_uv" },
+    "shading": "subsurface_approximation",
+    "notes": "Use green-teal color ramp. Animate curl noise slowly for pulsing effect."
+  }
+}

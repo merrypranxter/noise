@@ -1,0 +1,44 @@
+{
+  "id": "lava_flow",
+  "description": "Glowing lava cracks using inverted Worley F2-F1 with FBM displacement and domain warping for organic flow.",
+  "noise_graph": {
+    "base": {
+      "family": "worley",
+      "preset": "worley_leather"
+    },
+    "modifiers": [
+      {
+        "type": "domain_warp",
+        "warp_noise": "fbm",
+        "warp_strength": 0.6,
+        "warp_frequency": 1.2
+      },
+      {
+        "type": "invert",
+        "notes": "Invert F2-F1 so cracks become bright veins"
+      }
+    ],
+    "post_process": {
+      "remap": "pow(value, 3.0)",
+      "color_map": "black_body_radiation"
+    }
+  },
+  "style_tags": [
+    "lava",
+    "magma",
+    "glowing cracks",
+    "volcanic",
+    "emissive veins",
+    "hot"
+  ],
+  "example_prompts": [
+    "use inverted Worley F2-F1 with domain warp for glowing lava cracks",
+    "create volcanic magma texture with bright veins on dark rock",
+    "generate emissive lava flow using cellular noise and FBM displacement"
+  ],
+  "screenshot_metadata": {
+    "camera": { "type": "ortho_uv" },
+    "shading": "black_body_emission",
+    "notes": "Use pow(n, 3) to sharpen veins. Map to orange-yellow-white gradient. Add subtle animation via time offset."
+  }
+}

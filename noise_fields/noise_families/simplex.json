@@ -2,10 +2,23 @@
   "id": "simplex",
   "display_name": "Simplex Noise",
   "mathematical_definition": "Gradient noise defined over simplices (triangles/tetrahedra) with fewer directional artifacts and better scalability than classic Perlin noise.",
-  "dimension_support": [2, 3, 4],
+  "dimension_support": [
+    2,
+    3,
+    4
+  ],
   "value_range": "approx. [-1, 1]",
-  "visual_keywords": ["smooth", "organic", "isotropic", "fine detail"],
-  "good_for": ["high-frequency detail", "clouds", "volumetric effects"],
+  "visual_keywords": [
+    "smooth",
+    "organic",
+    "isotropic",
+    "fine detail"
+  ],
+  "good_for": [
+    "high-frequency detail",
+    "clouds",
+    "volumetric effects"
+  ],
   "art_failure_modes": [
     "Can look too uniform when used alone at low octaves.",
     "Aliasing if sampled at very high frequency without filtering."
@@ -19,7 +32,40 @@
       "octaves": 3,
       "lacunarity": 2.2,
       "gain": 0.45,
-      "style_tags": ["fine detail", "micro variation"]
+      "style_tags": [
+        "fine detail",
+        "micro variation"
+      ]
+    },
+    {
+      "id": "simplex_soft_undulation",
+      "dimensions": 3,
+      "space": "world",
+      "base_frequency": 0.8,
+      "octaves": 3,
+      "lacunarity": 2.0,
+      "gain": 0.5,
+      "style_tags": [
+        "soft",
+        "undulating",
+        "gentle",
+        "organic"
+      ]
+    },
+    {
+      "id": "simplex_noisy_grain",
+      "dimensions": 2,
+      "space": "uv",
+      "base_frequency": 12.0,
+      "octaves": 2,
+      "lacunarity": 2.5,
+      "gain": 0.4,
+      "style_tags": [
+        "grainy",
+        "high frequency",
+        "film grain",
+        "texture"
+      ]
     }
   ],
   "shader_chunks": {

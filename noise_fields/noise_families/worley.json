@@ -2,18 +2,39 @@
   "id": "worley",
   "display_name": "Worley (Cellular) Noise",
   "mathematical_definition": "Cellular noise derived from distances to Poisson-distributed feature points, often using F1 or F2-F1 metrics.",
-  "dimension_support": [2, 3],
+  "dimension_support": [
+    2,
+    3
+  ],
   "value_range": "[0, 1] after normalization of distance metric",
-  "visual_keywords": ["cellular", "stone", "cracked", "leather"],
-  "good_for": ["cells", "rocks", "veins", "stylized leather"],
+  "visual_keywords": [
+    "cellular",
+    "stone",
+    "cracked",
+    "leather"
+  ],
+  "good_for": [
+    "cells",
+    "rocks",
+    "veins",
+    "stylized leather"
+  ],
   "art_failure_modes": [
     "Obvious grid repetition when the point pattern is not randomized enough.",
     "Aliasing on sharp cell borders without anti-aliasing.",
     "Can look synthetic if used at a single scale."
   ],
   "parameters": {
-    "metric": ["euclidean", "manhattan", "chebyshev"],
-    "channels": ["F1", "F2", "F2_minus_F1"]
+    "metric": [
+      "euclidean",
+      "manhattan",
+      "chebyshev"
+    ],
+    "channels": [
+      "F1",
+      "F2",
+      "F2_minus_F1"
+    ]
   },
   "canonical_parameter_sets": [
     {
@@ -23,7 +44,53 @@
       "base_frequency": 6.0,
       "metric": "euclidean",
       "channel": "F2_minus_F1",
-      "style_tags": ["cellular", "leather", "organic surface"]
+      "style_tags": [
+        "cellular",
+        "leather",
+        "organic surface"
+      ]
+    },
+    {
+      "id": "worley_cobblestone",
+      "dimensions": 2,
+      "space": "uv",
+      "base_frequency": 8.0,
+      "metric": "euclidean",
+      "channel": "F1",
+      "style_tags": [
+        "cobblestone",
+        "rounded cells",
+        "path",
+        "floor"
+      ]
+    },
+    {
+      "id": "worley_cracked_earth",
+      "dimensions": 2,
+      "space": "world",
+      "base_frequency": 3.0,
+      "metric": "manhattan",
+      "channel": "F2_minus_F1",
+      "style_tags": [
+        "cracked",
+        "dry earth",
+        "desert",
+        "parched"
+      ]
+    },
+    {
+      "id": "worley_alien_veins",
+      "dimensions": 3,
+      "space": "world",
+      "base_frequency": 5.0,
+      "metric": "chebyshev",
+      "channel": "F2_minus_F1",
+      "style_tags": [
+        "alien",
+        "veins",
+        "crystalline",
+        "geometric cells"
+      ]
     }
   ],
   "shader_chunks": {

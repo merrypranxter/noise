@@ -1,0 +1,73 @@
+name: Validate Pack
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate-json:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate all JSON files
+        run: |
+          echo "Validating JSON syntax..."
+          find noise_fields -name "*.json" | while read f; do
+            if python3 -m json.tool "$f" > /dev/null 2>&1; then
+              echo "  ✓ $f"
+            else
+              echo "  ✗ $f (INVALID JSON)"
+              exit 1
+            fi
+          done
+
+      - name: Check index completeness
+        run: |
+          echo "Checking families index..."
+          for f in noise_fields/noise_families/*.json; do
+            if [ "$(basename $f)" != "index.json" ]; then
+              id=$(python3 -c "import json; print(json.load(open('$f'))['id'])")
+              if grep -q "\"$id\"" noise_fields/noise_families/index.json; then
+                echo "  ✓ $id in index"
+              else
+                echo "  ✗ $id MISSING from index"
+                exit 1
+              fi
+            fi
+          done
+
+          echo "Checking recipes index..."
+          for f in noise_fields/recipes/*.json; do
+            if [ "$(basename $f)" != "index.json" ]; then
+              id=$(python3 -c "import json; print(json.load(open('$f'))['id'])")
+              if grep -q "\"$id\"" noise_fields/recipes/index.json; then
+                echo "  ✓ $id in index"
+              else
+                echo "  ✗ $id MISSING from index"
+                exit 1
+              fi
+            fi
+          done
+
+      - name: Check shader chunk references
+        run: |
+          echo "Checking shader file references..."
+          for f in noise_fields/noise_families/*.json; do
+            if [ "$(basename $f)" != "index.json" ]; then
+              python3 -c "
+          import json, sys, os
+          data = json.load(open('$f'))
+          chunks = data.get('shader_chunks', {})
+          for lang, path in chunks.items():
+              full = os.path.join('noise_fields', path)
+              if os.path.exists(full):
+                  print(f'  ✓ {path}')
+              else:
+                  print(f'  ✗ {path} NOT FOUND')
+                  sys.exit(1)
+              "
+            fi
+          done

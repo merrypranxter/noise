@@ -2,24 +2,105 @@
   "id": "domain_warp",
   "display_name": "Domain Warp",
   "mathematical_definition": "Composes a base noise with warped coordinates x' = x + warp_noise(x) * warp_strength, often with different frequencies per axis.",
-  "dimension_support": [2, 3],
+  "dimension_support": [
+    2,
+    3
+  ],
   "value_range": "depends on base noise",
-  "visual_keywords": ["swirled", "turbulent", "warped", "psychedelic"],
-  "good_for": ["smoke", "fire", "marble", "psychedelic patterns"],
+  "visual_keywords": [
+    "swirled",
+    "turbulent",
+    "warped",
+    "psychedelic"
+  ],
+  "good_for": [
+    "smoke",
+    "fire",
+    "marble",
+    "psychedelic patterns"
+  ],
   "art_failure_modes": [
     "Too much warp strength destroys recognizable structure.",
     "Layered warps can fold space so aggressively that animation flickers."
   ],
   "parameters": {
-    "base_noise": ["perlin", "simplex", "fbm"],
-    "warp_noise": ["simplex", "fbm"],
+    "base_noise": [
+      "perlin",
+      "simplex",
+      "fbm"
+    ],
+    "warp_noise": [
+      "simplex",
+      "fbm"
+    ],
     "warp_strength": {
       "min": 0.0,
       "max": 3.0,
-      "typical": [0.25, 1.0]
+      "typical": [
+        0.25,
+        1.0
+      ]
     }
   },
-  "canonical_parameter_sets": [],
+  "canonical_parameter_sets": [
+    {
+      "id": "warp_subtle_organic",
+      "dimensions": 3,
+      "base_noise": "simplex",
+      "warp_noise": "simplex",
+      "warp_strength": 0.25,
+      "warp_frequency": 1.0,
+      "style_tags": [
+        "subtle",
+        "organic",
+        "gentle distortion"
+      ]
+    },
+    {
+      "id": "warp_psychedelic_deep",
+      "dimensions": 3,
+      "base_noise": "fbm",
+      "warp_noise": "fbm",
+      "warp_strength": 1.5,
+      "warp_frequency": 1.2,
+      "method": "iterative",
+      "iterations": 3,
+      "style_tags": [
+        "psychedelic",
+        "deep warp",
+        "acid",
+        "trippy"
+      ]
+    },
+    {
+      "id": "warp_marble_swirl",
+      "dimensions": 2,
+      "base_noise": "perlin",
+      "warp_noise": "simplex",
+      "warp_strength": 0.8,
+      "warp_frequency": 2.0,
+      "style_tags": [
+        "marble",
+        "swirled",
+        "stone",
+        "polished"
+      ]
+    },
+    {
+      "id": "warp_smoke_turbulence",
+      "dimensions": 3,
+      "base_noise": "fbm",
+      "warp_noise": "simplex",
+      "warp_strength": 0.6,
+      "warp_frequency": 1.5,
+      "style_tags": [
+        "smoke",
+        "turbulent",
+        "wispy",
+        "atmospheric"
+      ]
+    }
+  ],
   "shader_chunks": {
     "glsl": "shaders/glsl/domain_warp.glsl",
     "wgsl": "shaders/wgsl/domain_warp.wgsl"

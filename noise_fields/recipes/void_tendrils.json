@@ -1,0 +1,46 @@
+{
+  "id": "void_tendrils",
+  "description": "Dark abstract tendrils using curl noise flow lines with ridged multifractal modulation. Eldritch horror vibes.",
+  "noise_graph": {
+    "base": {
+      "family": "curl",
+      "preset": "curl_soft_vortices",
+      "override": {
+        "frequency": 2.5,
+        "step_size": 0.05
+      }
+    },
+    "modifiers": [
+      {
+        "type": "modulate_amplitude",
+        "modulator": "ridged_multifractal",
+        "preset": "ridged_mountains_low_lacunarity",
+        "strength": 0.8
+      }
+    ],
+    "post_process": {
+      "remap": "pow(abs(value), 0.5)",
+      "color_map": "dark_gradient_with_accent"
+    }
+  },
+  "style_tags": [
+    "tendrils",
+    "eldritch",
+    "dark",
+    "void",
+    "horror",
+    "flow",
+    "abstract",
+    "cosmic"
+  ],
+  "example_prompts": [
+    "use curl noise modulated by ridged multifractal for dark cosmic tendrils",
+    "create eldritch void patterns with flow-field tendrils and sharp ridge modulation",
+    "generate abstract dark horror texture using curl fields and ridged noise"
+  ],
+  "screenshot_metadata": {
+    "camera": { "type": "ortho_uv" },
+    "shading": "dark_emission",
+    "notes": "Dark background with bright accent tendrils. Use particle advection along curl field for line rendering."
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "id": "psychedelic_warp",
+  "description": "Deep iterative domain warping for swirling, acid-trip patterns. Noise eating its own tail.",
+  "noise_graph": {
+    "base": {
+      "family": "fbm",
+      "preset": "fbm_soft_clouds"
+    },
+    "modifiers": [
+      {
+        "type": "domain_warp",
+        "method": "iterative",
+        "iterations": 3,
+        "warp_noise": "simplex",
+        "warp_strength": 1.2,
+        "warp_frequency": 1.5
+      }
+    ]
+  },
+  "style_tags": [
+    "psychedelic",
+    "swirling",
+    "acid",
+    "trippy",
+    "deep warp",
+    "organic chaos"
+  ],
+  "example_prompts": [
+    "use deep iterative domain warping for psychedelic swirling patterns",
+    "compose trippy acid-like textures by feeding noise through itself three times",
+    "create organic chaos using nested domain warp of FBM simplex"
+  ],
+  "screenshot_metadata": {
+    "camera": { "type": "ortho_uv" },
+    "shading": "hue_mapped_from_value",
+    "notes": "Map output to HSB hue for maximum color saturation. Animate time uniform slowly."
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "id": "aurora_bands",
+  "description": "Flowing aurora borealis bands using anisotropic FBM with vertical stretching and gentle domain warp.",
+  "noise_graph": {
+    "base": {
+      "family": "fbm",
+      "preset": "fbm_soft_clouds",
+      "override": {
+        "anisotropy": {
+          "frequency_scale": [1.0, 0.3, 1.0],
+          "notes": "Stretch vertically by reducing Y frequency"
+        }
+      }
+    },
+    "modifiers": [
+      {
+        "type": "domain_warp",
+        "warp_noise": "simplex",
+        "warp_strength": 0.5,
+        "warp_frequency": 0.8
+      }
+    ],
+    "post_process": {
+      "remap": "smoothstep(0.2, 0.8, value)",
+      "color_map": "aurora_gradient"
+    }
+  },
+  "style_tags": [
+    "aurora",
+    "borealis",
+    "bands",
+    "flowing",
+    "ethereal",
+    "sky",
+    "atmospheric"
+  ],
+  "example_prompts": [
+    "use anisotropic FBM with vertical stretching for aurora borealis bands",
+    "create flowing ethereal sky bands with gentle domain warping",
+    "generate aurora-like atmospheric patterns using stretched FBM noise"
+  ],
+  "screenshot_metadata": {
+    "camera": { "type": "perspective", "notes": "Render as sky dome or fullscreen quad" },
+    "shading": "additive_emission",
+    "notes": "Map to green-teal-purple gradient. Animate time slowly for gentle drift."
+  }
+}

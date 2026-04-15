@@ -1,5 +1,13 @@
-[
-  { "id": "smoky_volumetric_haze", "path": "recipes/smoky_haze.json" },
-  { "id": "jagged_mountains", "path": "recipes/jagged_mountains.json" },
-  { "id": "cellular_leather", "path": "recipes/cellular_leather.json" }
-]
+{
+  "recipes": [
+    { "id": "jagged_mountains", "path": "recipes/jagged_mountains.json" },
+    { "id": "smoky_haze", "path": "recipes/smoky_haze.json" },
+    { "id": "cellular_leather", "path": "recipes/cellular_leather.json" },
+    { "id": "psychedelic_warp", "path": "recipes/psychedelic_warp.json" },
+    { "id": "lava_flow", "path": "recipes/lava_flow.json" },
+    { "id": "alien_membrane", "path": "recipes/alien_membrane.json" },
+    { "id": "crystal_lattice", "path": "recipes/crystal_lattice.json" },
+    { "id": "void_tendrils", "path": "recipes/void_tendrils.json" },
+    { "id": "aurora_bands", "path": "recipes/aurora_bands.json" }
+  ]
+}

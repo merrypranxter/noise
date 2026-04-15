@@ -1,0 +1,25 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Node (if tooling added later)
+node_modules/
+package-lock.json
+
+# Python (if validation scripts added)
+__pycache__/
+*.pyc
+.venv/
+
+# Build artifacts
+dist/
+build/
+*.o
+*.obj
