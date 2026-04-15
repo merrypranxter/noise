@@ -1,0 +1,9 @@
+[
+  { "id": "perlin", "path": "noise_families/perlin.json" },
+  { "id": "simplex", "path": "noise_families/simplex.json" },
+  { "id": "worley", "path": "noise_families/worley.json" },
+  { "id": "fbm", "path": "noise_families/fbm.json" },
+  { "id": "ridged_multifractal", "path": "noise_families/ridged_multifractal.json" },
+  { "id": "domain_warp", "path": "noise_families/domain_warp.json" },
+  { "id": "curl", "path": "noise_families/curl.json" }
+]

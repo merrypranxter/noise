@@ -1,0 +1,35 @@
+{
+  "id": "fbm",
+  "display_name": "Fractal Brownian Motion",
+  "base_noise_family": ["perlin", "simplex"],
+  "mathematical_definition": "Sum of N octaves of a base noise with frequency multiplied by lacunarity and amplitude scaled by gain each octave.",
+  "dimension_support": [1, 2, 3, 4],
+  "value_range": "depends on base noise and number of octaves",
+  "visual_keywords": ["fractal", "layered", "natural"],
+  "good_for": ["terrain", "clouds", "wood", "marble"],
+  "art_failure_modes": [
+    "Too many octaves produce noisy, grainy results.",
+    "High lacunarity with low gain can create harsh, brittle patterns."
+  ],
+  "canonical_parameter_sets": [
+    {
+      "id": "fbm_soft_clouds",
+      "base_noise": "perlin",
+      "dimensions": 3,
+      "octaves": 5,
+      "base_frequency": 1.2,
+      "lacunarity": 2.0,
+      "gain": 0.5,
+      "style_tags": ["soft clouds", "volumetric haze"]
+    }
+  ],
+  "shader_chunks": {
+    "glsl": "shaders/glsl/fbm.glsl",
+    "wgsl": "shaders/wgsl/fbm.wgsl"
+  },
+  "complexity_notes": {
+    "relative_cost": "scales with octave count",
+    "branching": "none",
+    "texture_lookups": 0
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "id": "multifractal",
+  "display_name": "Multifractal Combinator",
+  "description": "Multiplicative combination of octaves where each octave's contribution depends on the previous octave's value, producing heterogeneous detail distribution.",
+  "accepts_base_noise": ["perlin", "simplex"],
+  "parameters": {
+    "octaves": { "type": "int", "min": 1, "max": 16, "typical": [4, 8] },
+    "base_frequency": { "type": "float", "min": 0.1, "max": 20.0 },
+    "lacunarity": { "type": "float", "min": 1.0, "max": 4.0, "typical": [2.0] },
+    "gain": { "type": "float", "min": 0.0, "max": 1.0, "typical": [0.5] },
+    "offset": { "type": "float", "min": 0.0, "max": 2.0, "typical": [0.9] }
+  },
+  "notes": "Produces heterogeneous fractal patterns where smooth areas have less detail and rough areas have more."
+}

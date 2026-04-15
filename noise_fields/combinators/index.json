@@ -1,0 +1,6 @@
+[
+  { "id": "fbm", "path": "combinators/fbm.json" },
+  { "id": "multifractal", "path": "combinators/multifractal.json" },
+  { "id": "hybrid_multifractal", "path": "combinators/hybrid_multifractal.json" },
+  { "id": "domain_warp", "path": "combinators/domain_warp.json" }
+]

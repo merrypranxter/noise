@@ -1,0 +1,32 @@
+{
+  "id": "domain_warp",
+  "display_name": "Domain Warp",
+  "mathematical_definition": "Composes a base noise with warped coordinates x' = x + warp_noise(x) * warp_strength, often with different frequencies per axis.",
+  "dimension_support": [2, 3],
+  "value_range": "depends on base noise",
+  "visual_keywords": ["swirled", "turbulent", "warped", "psychedelic"],
+  "good_for": ["smoke", "fire", "marble", "psychedelic patterns"],
+  "art_failure_modes": [
+    "Too much warp strength destroys recognizable structure.",
+    "Layered warps can fold space so aggressively that animation flickers."
+  ],
+  "parameters": {
+    "base_noise": ["perlin", "simplex", "fbm"],
+    "warp_noise": ["simplex", "fbm"],
+    "warp_strength": {
+      "min": 0.0,
+      "max": 3.0,
+      "typical": [0.25, 1.0]
+    }
+  },
+  "canonical_parameter_sets": [],
+  "shader_chunks": {
+    "glsl": "shaders/glsl/domain_warp.glsl",
+    "wgsl": "shaders/wgsl/domain_warp.wgsl"
+  },
+  "complexity_notes": {
+    "relative_cost": "high (evaluates multiple noise functions)",
+    "branching": "none",
+    "texture_lookups": 0
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "id": "hybrid_multifractal",
+  "display_name": "Hybrid Multifractal Combinator",
+  "description": "Blends additive FBM and multiplicative multifractal approaches, providing a mix of uniform and heterogeneous detail distribution.",
+  "accepts_base_noise": ["perlin", "simplex"],
+  "parameters": {
+    "octaves": { "type": "int", "min": 1, "max": 16, "typical": [5, 8] },
+    "base_frequency": { "type": "float", "min": 0.1, "max": 20.0 },
+    "lacunarity": { "type": "float", "min": 1.0, "max": 4.0, "typical": [2.0] },
+    "gain": { "type": "float", "min": 0.0, "max": 1.0, "typical": [0.5] },
+    "offset": { "type": "float", "min": 0.0, "max": 2.0, "typical": [0.7] }
+  },
+  "notes": "Useful for terrain where you want valleys to be smooth and peaks to be detailed."
+}

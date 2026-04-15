@@ -1,0 +1,37 @@
+{
+  "id": "jagged_mountains",
+  "description": "Ridged multifractal world-space noise for sharp, craggy mountain ranges.",
+  "noise_graph": {
+    "base": {
+      "family": "ridged_multifractal",
+      "preset": "ridged_mountains_low_lacunarity"
+    },
+    "modifiers": [
+      {
+        "type": "domain_warp",
+        "warp_noise": "fbm",
+        "warp_strength": 0.4,
+        "warp_frequency": 0.8
+      }
+    ]
+  },
+  "style_tags": [
+    "jagged mountains",
+    "high roughness",
+    "low lacunarity",
+    "craggy",
+    "alien terrain"
+  ],
+  "example_prompts": [
+    "use ridged multifractal world-space noise with low lacunarity and high roughness for jagged mountains",
+    "compose a mountainous heightfield from ridged multifractal noise with subtle domain warp"
+  ],
+  "screenshot_metadata": {
+    "camera": {
+      "type": "ortho_topdown",
+      "scale": 200.0
+    },
+    "shading": "height_to_grayscale",
+    "notes": "Render heightfield at 1024x1024 as 16-bit grayscale texture."
+  }
+}

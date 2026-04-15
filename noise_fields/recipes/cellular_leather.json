@@ -1,0 +1,20 @@
+{
+  "id": "cellular_leather",
+  "description": "Cellular texture resembling worn leather using Worley F2-F1 channels.",
+  "noise_graph": {
+    "base": {
+      "family": "worley",
+      "preset": "worley_leather"
+    },
+    "modifiers": []
+  },
+  "style_tags": ["cellular", "leather", "organic surface"],
+  "example_prompts": [
+    "use 2D Worley noise (F2 minus F1) in UV space for a cellular leather texture",
+    "drive roughness with cellular Worley noise to mimic worn leather"
+  ],
+  "screenshot_metadata": {
+    "camera": { "type": "ortho_uv" },
+    "shading": "albedo + roughness preview"
+  }
+}

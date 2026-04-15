@@ -1,0 +1,5 @@
+[
+  { "id": "smoky_volumetric_haze", "path": "recipes/smoky_haze.json" },
+  { "id": "jagged_mountains", "path": "recipes/jagged_mountains.json" },
+  { "id": "cellular_leather", "path": "recipes/cellular_leather.json" }
+]
