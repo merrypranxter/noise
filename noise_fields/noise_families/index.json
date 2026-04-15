@@ -5,5 +5,7 @@
   { "id": "fbm", "path": "noise_families/fbm.json" },
   { "id": "ridged_multifractal", "path": "noise_families/ridged_multifractal.json" },
   { "id": "domain_warp", "path": "noise_families/domain_warp.json" },
-  { "id": "curl", "path": "noise_families/curl.json" }
+  { "id": "curl", "path": "noise_families/curl.json" },
+  { "id": "value", "path": "noise_families/value.json" },
+  { "id": "gabor", "path": "noise_families/gabor.json" }
 ]

@@ -1,0 +1,74 @@
+{
+  "id": "gabor",
+  "display_name": "Gabor Noise",
+  "mathematical_definition": "Sparse convolution noise: a Poisson-distributed set of Gabor kernels (oriented sinusoid windowed by a Gaussian envelope) is scattered over the plane. The response at any point is the sum of contributions from kernels within a finite support radius. Based on Lagae et al. 2009.",
+  "dimension_support": [2, 3],
+  "value_range": "approx. [-1, 1] before remapping (variance depends on kernel density)",
+  "visual_keywords": ["oriented", "anisotropic", "fibrous", "brushstroke", "fabric", "hair", "wavy lines"],
+  "good_for": [
+    "fabric and woven textures",
+    "hair and fur direction fields",
+    "brushstroke overlays",
+    "wood grain",
+    "oriented geological strata",
+    "anisotropic surface detail"
+  ],
+  "art_failure_modes": [
+    "At low bandwidth, kernels become very large and the field looks like a single sinusoid wave — reduce bandwidth or increase kernel density.",
+    "At very high frequency the output saturates to near-uniform noise; keep freq below 8.0 for readable orientation.",
+    "The approximation uses a fixed number of kernel taps per cell; low impulse density can show visible Poisson gaps — raise impulse_density.",
+    "Without per-octave rotation, FBM of gabor noise locks orientation and looks artificial — vary angle per octave."
+  ],
+  "canonical_parameter_sets": [
+    {
+      "id": "gabor_fabric_weave",
+      "dimensions": 2,
+      "space": "uv",
+      "freq": 6.0,
+      "angle": 0.785,
+      "bandwidth": 1.5,
+      "impulse_density": 64,
+      "style_tags": ["fabric", "weave", "textile", "tight pattern", "anisotropic"]
+    },
+    {
+      "id": "gabor_brushstroke",
+      "dimensions": 2,
+      "space": "uv",
+      "freq": 3.0,
+      "angle": 1.047,
+      "bandwidth": 2.5,
+      "impulse_density": 48,
+      "style_tags": ["brushstroke", "painterly", "loose strokes", "canvas texture"]
+    },
+    {
+      "id": "gabor_wood_grain",
+      "dimensions": 2,
+      "space": "uv",
+      "freq": 4.5,
+      "angle": 0.0,
+      "bandwidth": 1.0,
+      "impulse_density": 80,
+      "style_tags": ["wood grain", "horizontal lines", "natural material", "organic stripes"]
+    },
+    {
+      "id": "gabor_tight_vortex",
+      "dimensions": 2,
+      "space": "uv",
+      "freq": 8.0,
+      "angle": 0.523,
+      "bandwidth": 0.8,
+      "impulse_density": 96,
+      "style_tags": ["tight vortex", "micro detail", "fine fibre", "high frequency"]
+    }
+  ],
+  "shader_chunks": {
+    "glsl": "shaders/glsl/gabor.glsl",
+    "wgsl": "shaders/wgsl/gabor.wgsl"
+  },
+  "complexity_notes": {
+    "relative_cost": "high",
+    "branching": "minimal",
+    "texture_lookups": 0,
+    "notes": "Evaluates multiple kernel contributions per fragment (impulse_density / cell^2 on average). More expensive than Perlin; cache-friendly because all computation is ALU-bound."
+  }
+}

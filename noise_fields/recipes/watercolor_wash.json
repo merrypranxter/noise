@@ -1,0 +1,49 @@
+{
+  "id": "watercolor_wash",
+  "description": "Soft, painterly colour transitions with bleeding edges, mimicking watercolour on wet paper. Value FBM drives the base wash; light domain warp adds edge bleed; a thin Gabor grain overlay adds paper texture.",
+  "noise_graph": {
+    "base": {
+      "family": "value",
+      "preset": "value_watercolour_blobs"
+    },
+    "modifiers": [
+      {
+        "type": "domain_warp",
+        "warp_noise": "value",
+        "warp_strength": 0.25,
+        "warp_frequency": 1.8,
+        "comment": "Creates soft bleeding edges characteristic of wet-on-wet watercolour"
+      },
+      {
+        "type": "overlay",
+        "overlay_noise": "gabor",
+        "preset": "gabor_brushstroke",
+        "blend_mode": "soft_light",
+        "opacity": 0.18,
+        "comment": "Adds subtle paper grain / brush texture"
+      }
+    ]
+  },
+  "style_tags": [
+    "watercolour",
+    "painterly",
+    "soft",
+    "bleeding edges",
+    "pastel",
+    "wet-on-wet",
+    "paper texture",
+    "organic"
+  ],
+  "example_prompts": [
+    "create a soft watercolour wash with bleeding colour edges and paper grain",
+    "make a painterly background with pastel washes and gentle domain bleed"
+  ],
+  "screenshot_metadata": {
+    "camera": {
+      "type": "ortho_topdown",
+      "scale": 1.0
+    },
+    "shading": "cosine_palette_pastel",
+    "notes": "Render at 1024x1024. Apply a soft pastel colour palette mapped through the value FBM output. The Gabor grain should be barely perceptible — a whisper of texture."
+  }
+}

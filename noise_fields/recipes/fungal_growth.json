@@ -1,0 +1,60 @@
+{
+  "id": "fungal_growth",
+  "description": "Organic mycelium-like growth patterns: curl noise advects Worley cell centres over time, producing branching tendrils. Ridged multifractal FBM adds surface roughness suggesting hyphal texture.",
+  "noise_graph": {
+    "base": {
+      "family": "worley",
+      "distance_metric": "euclidean",
+      "feature": "F1",
+      "frequency": 2.5,
+      "comment": "Base Worley cells become the nucleation sites of fungal colonies"
+    },
+    "modifiers": [
+      {
+        "type": "domain_warp",
+        "warp_noise": "curl",
+        "warp_strength": 0.7,
+        "warp_frequency": 1.5,
+        "animate": true,
+        "time_scale": 0.08,
+        "comment": "Curl advection bends cell edges into tendril shapes"
+      },
+      {
+        "type": "overlay",
+        "overlay_noise": "ridged_multifractal",
+        "preset": "ridged_mountains_low_lacunarity",
+        "blend_mode": "multiply",
+        "opacity": 0.5,
+        "comment": "Ridged FBM adds hyphal surface texture and branching ridge detail"
+      },
+      {
+        "type": "threshold",
+        "threshold": 0.35,
+        "edge_sharpness": 0.15,
+        "comment": "Soft threshold separates mycelium mass from substrate"
+      }
+    ]
+  },
+  "style_tags": [
+    "fungal",
+    "mycelium",
+    "tendrils",
+    "organic growth",
+    "spores",
+    "biological",
+    "branching",
+    "earthy"
+  ],
+  "example_prompts": [
+    "create a fungal mycelium growth pattern with branching tendrils driven by curl noise",
+    "make a biological spore colony texture using curl-advected Worley cells and ridged FBM"
+  ],
+  "screenshot_metadata": {
+    "camera": {
+      "type": "ortho_topdown",
+      "scale": 1.0
+    },
+    "shading": "forest_earthy_palette",
+    "notes": "Render at 1024x1024. Use earthy tones: dark soil brown (#1a0f07) as substrate, pale mycelium white (#e8e2d0) for hyphae, with faint bioluminescent green (#4aff8c) highlights. Animate slowly at 0.08 time scale."
+  }
+}

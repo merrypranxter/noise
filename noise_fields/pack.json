@@ -1,7 +1,7 @@
 {
   "id": "noise_fields",
   "name": "Canonical Noise and Domain-Warp Pack",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Structured, machine-readable knowledge about procedural noise families, combinators, and style recipes for generative shaders. Designed for RepoScripter to reason about noise semantically and lower to GLSL/WGSL.",
   "tags": ["noise", "shaders", "glsl", "wgsl", "procedural", "generative", "reposcripter"],
   "families_index": "noise_families/index.json",

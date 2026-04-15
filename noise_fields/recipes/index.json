@@ -8,6 +8,10 @@
     { "id": "alien_membrane", "path": "recipes/alien_membrane.json" },
     { "id": "crystal_lattice", "path": "recipes/crystal_lattice.json" },
     { "id": "void_tendrils", "path": "recipes/void_tendrils.json" },
-    { "id": "aurora_bands", "path": "recipes/aurora_bands.json" }
+    { "id": "aurora_bands", "path": "recipes/aurora_bands.json" },
+    { "id": "watercolor_wash", "path": "recipes/watercolor_wash.json" },
+    { "id": "circuit_board", "path": "recipes/circuit_board.json" },
+    { "id": "deep_ocean_caustics", "path": "recipes/deep_ocean_caustics.json" },
+    { "id": "fungal_growth", "path": "recipes/fungal_growth.json" }
   ]
 }

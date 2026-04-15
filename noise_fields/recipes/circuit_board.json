@@ -1,0 +1,62 @@
+{
+  "id": "circuit_board",
+  "description": "Grid-aligned Worley F2-F1 with sharp step thresholds produces trace lines and pads reminiscent of a printed circuit board. Manhattan distance metric for orthogonal traces, Chebyshev for rectangular pads.",
+  "noise_graph": {
+    "base": {
+      "family": "worley",
+      "distance_metric": "manhattan",
+      "feature": "F2_minus_F1",
+      "frequency": 4.0,
+      "comment": "Manhattan distance gives orthogonal trace lines"
+    },
+    "modifiers": [
+      {
+        "type": "threshold",
+        "threshold": 0.12,
+        "edge_sharpness": 0.02,
+        "output_low": 0.0,
+        "output_high": 1.0,
+        "comment": "Snap traces to hard edges"
+      },
+      {
+        "type": "overlay",
+        "overlay_noise": "worley",
+        "distance_metric": "chebyshev",
+        "feature": "F1",
+        "frequency": 4.0,
+        "blend_mode": "multiply",
+        "threshold": 0.08,
+        "comment": "Chebyshev F1 produces square pads at cell centres"
+      },
+      {
+        "type": "domain_warp",
+        "warp_noise": "value",
+        "warp_strength": 0.04,
+        "warp_frequency": 8.0,
+        "comment": "Tiny manufacturing imperfection warp — keeps it feeling physical"
+      }
+    ]
+  },
+  "style_tags": [
+    "circuit board",
+    "pcb",
+    "geometric",
+    "grid-aligned",
+    "trace lines",
+    "electronic",
+    "tech",
+    "sharp edges"
+  ],
+  "example_prompts": [
+    "create a circuit board pattern with trace lines and square pads",
+    "make a PCB-style texture using Worley cells and sharp thresholds"
+  ],
+  "screenshot_metadata": {
+    "camera": {
+      "type": "ortho_topdown",
+      "scale": 1.0
+    },
+    "shading": "two_tone_circuit_green",
+    "notes": "Render at 1024x1024. Use dark green (#0a1f0a) background with bright circuit-board green (#00ff41) traces and copper-gold (#b87333) pads. Hard-edge shading, no anti-aliasing on thresholds."
+  }
+}

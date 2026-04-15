@@ -1,0 +1,62 @@
+{
+  "id": "value",
+  "display_name": "Value Noise",
+  "mathematical_definition": "Assigns a pseudo-random scalar to each integer lattice point and interpolates between neighbours using a C2-continuous quintic smoothstep. Cheaper than Perlin noise because no gradient vectors are needed — only a single hash per corner.",
+  "dimension_support": [1, 2, 3],
+  "value_range": "approx. [-1, 1] before remapping",
+  "visual_keywords": ["soft", "smooth", "blobby", "low-contrast", "organic", "painterly"],
+  "good_for": [
+    "heightmaps in performance-constrained contexts",
+    "soft watercolour blobs",
+    "cloud base layers",
+    "cheap background texture"
+  ],
+  "art_failure_modes": [
+    "Blocky grid artefacts when interpolation degree is too low (linear) or frequency is very high.",
+    "Looks washed-out and low-contrast compared to Perlin/Simplex — needs contrast stretch or gamma.",
+    "FBM of value noise can produce noticeably banded horizontal/vertical features; rotate coordinates per octave to mitigate.",
+    "Hash collisions at very large coordinate values can create visible seams; clamp or modulo input space."
+  ],
+  "canonical_parameter_sets": [
+    {
+      "id": "value_soft_terrain",
+      "dimensions": 2,
+      "space": "world",
+      "base_frequency": 0.6,
+      "octaves": 5,
+      "lacunarity": 2.0,
+      "gain": 0.5,
+      "style_tags": ["soft hills", "gentle terrain", "smooth heightmap"]
+    },
+    {
+      "id": "value_watercolour_blobs",
+      "dimensions": 2,
+      "space": "uv",
+      "base_frequency": 1.2,
+      "octaves": 3,
+      "lacunarity": 2.2,
+      "gain": 0.6,
+      "style_tags": ["watercolour", "soft blobs", "painterly", "bleeding edges"]
+    },
+    {
+      "id": "value_fast_heightmap",
+      "dimensions": 3,
+      "space": "world",
+      "base_frequency": 1.0,
+      "octaves": 4,
+      "lacunarity": 2.0,
+      "gain": 0.45,
+      "style_tags": ["fast", "heightmap", "performance", "low cost"]
+    }
+  ],
+  "shader_chunks": {
+    "glsl": "shaders/glsl/value.glsl",
+    "wgsl": "shaders/wgsl/value.wgsl"
+  },
+  "complexity_notes": {
+    "relative_cost": "low",
+    "branching": "none",
+    "texture_lookups": 0,
+    "notes": "4 hash evaluations per 2D sample vs 4 gradient evaluations for Perlin — roughly 30-40% cheaper per octave on GPU."
+  }
+}
