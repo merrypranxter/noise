@@ -1,0 +1,66 @@
+{
+  "id": "deep_ocean_caustics",
+  "description": "Animated underwater caustic light patterns formed by dual-layer Worley noise driven through a time-varying domain warp. The characteristic shimmering network of bright threads on a dark ocean floor.",
+  "noise_graph": {
+    "base": {
+      "family": "worley",
+      "distance_metric": "euclidean",
+      "feature": "F1",
+      "frequency": 3.5,
+      "animate": true,
+      "time_scale": 0.3,
+      "comment": "Primary caustic cell structure"
+    },
+    "modifiers": [
+      {
+        "type": "domain_warp",
+        "warp_noise": "perlin",
+        "warp_strength": 0.55,
+        "warp_frequency": 1.2,
+        "animate": true,
+        "time_scale": 0.15,
+        "comment": "Slow-moving water surface lens warp"
+      },
+      {
+        "type": "overlay",
+        "overlay_noise": "worley",
+        "distance_metric": "euclidean",
+        "feature": "F2_minus_F1",
+        "frequency": 5.0,
+        "animate": true,
+        "time_scale": 0.4,
+        "blend_mode": "add",
+        "opacity": 0.45,
+        "comment": "Secondary caustic layer at higher frequency — adds depth"
+      },
+      {
+        "type": "remap",
+        "operation": "power",
+        "exponent": 0.5,
+        "comment": "Brighten mid-tones to match caustic light intensity distribution"
+      }
+    ]
+  },
+  "style_tags": [
+    "underwater",
+    "caustics",
+    "animated",
+    "shimmering",
+    "ocean floor",
+    "aquatic",
+    "light refraction",
+    "blue"
+  ],
+  "example_prompts": [
+    "create animated underwater caustic light patterns with shimmering threads",
+    "make deep ocean caustics with time-varying Worley domain warp"
+  ],
+  "screenshot_metadata": {
+    "camera": {
+      "type": "ortho_topdown",
+      "scale": 1.0
+    },
+    "shading": "ocean_blue_luminance",
+    "notes": "Render at 1024x1024. Map caustic intensity to luminance in a deep ocean palette: dark navy (#060d1f) shadows to bright cyan-white (#a8f0ff) highlights. Animated at 24+ fps, time uniform in seconds."
+  }
+}

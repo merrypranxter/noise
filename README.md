@@ -43,6 +43,8 @@ Try a shader example:
 | **Ridged Multifractal** | jagged, mountainous, craggy | mountains, rocky cliffs |
 | **Domain Warp** | swirled, turbulent, psychedelic | smoke, fire, marble, acid |
 | **Curl** | turbulent, vortices, flow | velocity fields, tendrils, advection |
+| **Value** | soft, blobby, painterly, cheap | heightmaps, watercolour, performance |
+| **Gabor** | oriented, fibrous, brushstroke, anisotropic | fabric, hair, wood grain, brushstrokes |
 
 ## Combinators
 
@@ -66,12 +68,16 @@ Try a shader example:
 | **Crystal Lattice** | Geometric faceted minerals | Worley Chebyshev + quantization |
 | **Void Tendrils** | Eldritch dark flow patterns | Curl noise × ridged multifractal |
 | **Aurora Bands** | Ethereal sky bands | Anisotropic FBM + gentle warp |
+| **Watercolor Wash** | Soft bleeding-edge paint | Value FBM + domain warp + Gabor grain |
+| **Circuit Board** | PCB trace lines and pads | Manhattan Worley + step threshold + Chebyshev pads |
+| **Deep Ocean Caustics** | Animated underwater light | Dual Worley + animated domain warp |
+| **Fungal Growth** | Mycelium tendrils | Curl-advected Worley + ridged multifractal |
 
 ## Repository Layout
 
 ```
 noise_fields/
-  pack.json                          # Pack metadata (v0.2.0)
+  pack.json                          # Pack metadata (v0.3.0)
   noise_families/
     index.json                       # Family registry
     perlin.json                      # Gradient noise on a lattice
@@ -81,6 +87,8 @@ noise_fields/
     ridged_multifractal.json         # Ridge-sharpened FBM
     domain_warp.json                 # Coordinate distortion
     curl.json                        # Divergence-free vector fields
+    value.json                       # Scalar lattice noise (cheap, painterly)
+    gabor.json                       # Oriented Gabor kernel convolution
   combinators/
     index.json                       # Combinator registry
     fbm.json / multifractal.json / hybrid_multifractal.json / domain_warp.json
@@ -89,7 +97,9 @@ noise_fields/
     wgsl/                            # Working WGSL implementations
   recipes/
     index.json                       # Recipe registry
-    jagged_mountains.json            # + 8 more recipes
+    jagged_mountains.json            # + 12 more recipes
+gallery/
+  index.html                         # Zero-dependency WebGL interactive gallery
 docs/
   architecture.md                    # How the pack is designed
   adding-recipes.md                  # How to extend it
@@ -97,6 +107,16 @@ examples/
   psychedelic_fullscreen.glsl        # Standalone IQ-warp demo
   shadertoy_lava.glsl               # ShaderToy lava cracks demo
 ```
+
+## Interactive Gallery
+
+Open `gallery/index.html` directly in any WebGL2-capable browser — no build step required.
+
+- **10 live recipes** rendered in real-time (60 fps target)
+- **Dropdown** to switch between: Perlin FBM, Worley Cells, Domain Warp, Value Wash, Circuit Board, Ocean Caustics, Gabor Fabric, Fungal Growth, Ridged Mountains, Curl Tendrils
+- **Sliders** for frequency, octaves, warp strength, orientation, and animation speed
+- **6 palettes**: Greyscale, Thermal, Ocean, Forest, Acid, Circuit Green
+- All noise implementations are inlined — no external dependencies
 
 ## How RepoScripter Uses This
 
